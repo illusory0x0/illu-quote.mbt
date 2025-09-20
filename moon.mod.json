@@ -2,8 +2,8 @@
   "name": "illusory0x0/quote",
   "version": "0.1.0",
   "readme": "README.md",
-  "repository": "",
+  "repository": "https://github.com/illusory0x0/illu-quote.mbt",
   "license": "Apache-2.0",
-  "keywords": [],
-  "description": ""
+  "keywords": ["macro", "meta-programming", "quote", "quotation", "utility"],
+  "description": "A MoonBit library for handling and manipulating quotations and quoted text"
 }
