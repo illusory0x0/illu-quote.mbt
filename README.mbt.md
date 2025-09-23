@@ -10,11 +10,11 @@ After that, you can manipulate the code snippets like Rust procedure macros.
 ///|
 test {
   let s = quote(x => x + 1)
-  inspect(s.path[s.path.length() - 1], content="README.mbt.md")
+  inspect(s.path.to_string().contains("README.mbt.md"), content="true")
   inspect(s.start, content="{row: 12, column: 11}")
   inspect(s.end, content="{row: 12, column: 28}")
   let s = current_source_location()
-  inspect(s.path[s.path.length() - 1], content="README.mbt.md")
+  inspect(s.path.to_string().contains("README.mbt.md"), content="true")
   inspect(s.start, content="{row: 16, column: 11}")
   inspect(s.end, content="{row: 16, column: 36}")
 }

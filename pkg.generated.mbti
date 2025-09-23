@@ -2,6 +2,7 @@
 package "illusory0x0/quote"
 
 import(
+  "illusory0x0/path"
   "moonbitlang/core/json"
 )
 
@@ -18,18 +19,8 @@ pub suberror ParseSourceLocationError {
 }
 impl Show for ParseSourceLocationError
 impl ToJson for ParseSourceLocationError
-impl @json.FromJson for ParseSourceLocationError
 
 // Types and methods
-type AbsolutePath
-fn AbsolutePath::from(Array[String]) -> Self
-fn AbsolutePath::length(Self) -> Int
-fn AbsolutePath::op_get(Self, Int) -> String
-fn AbsolutePath::op_set(Self, Int, String) -> Unit
-impl Show for AbsolutePath
-impl ToJson for AbsolutePath
-impl @json.FromJson for AbsolutePath
-
 pub(all) struct Position {
   row : Int
   column : Int
@@ -39,7 +30,7 @@ impl ToJson for Position
 impl @json.FromJson for Position
 
 pub(all) struct SourceLocation {
-  path : AbsolutePath
+  path : @path.Path
   start : Position
   end : Position
 }
@@ -47,9 +38,9 @@ fn SourceLocation::parse(String) -> Self raise ParseSourceLocationError
 fn SourceLocation::split_file(String, Array[Self]) -> Array[StringView]
 impl Show for SourceLocation
 impl ToJson for SourceLocation
-impl @json.FromJson for SourceLocation
 
 // Type aliases
+pub typealias @path.Path as Path
 
 // Traits
 
