@@ -550,10 +550,10 @@ test "parse extremely large column number" {
 /// Test split_file with single line extraction
 test "split_file single line basic" {
   let file_content = "hello world\nthis is line 2\nand line 3"
-  let loc = @quote.SourceLocation::parse("test.mbt:1:7-1:11")
+  let loc = @quote.SourceLocation::parse("test.mbt:1:7-1:12")
   let result = @quote.SourceLocation::split_file(file_content, [loc])
   inspect(result.length(), content="1")
-  inspect(result[0].to_string(), content="worl")
+  inspect(result[0].to_string(), content="world")
 }
 
 ///|
